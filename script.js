@@ -36,8 +36,10 @@ function generatePassword() {
   enter = parseInt(prompt("Choose how many characters. Values between 8 and 128 are accepted.")); 
   if (!enter) {
     alert('You did not enter a value.'); //checks that the user entered a value
+    return false;
   } else if (enter < 8 || enter > 128) {
-    enter = parseInt(prompt("Must choose a value between 8 and 128")); //checks that the user entered a value between 8 and 128
+    enter = alert("Must choose a value between 8 and 128"); //checks that the user entered a value between 8 and 128
+    return false;
   } else {
     confirmNumberChoice = confirm("Include numerica values?");
     confirmUppercaseChoice = confirm("Include uppercase letters?");
