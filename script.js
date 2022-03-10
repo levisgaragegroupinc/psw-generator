@@ -16,7 +16,7 @@ uppercaseList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 lowercaseList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 //List of special character values
-symbolsList = ['@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '?', '>', '<', ':', '{', '}', "[", "]", ];
+symbolsList = ['@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '?', '>', '<', ':', '{', '}', "[", "]", '`\\', '\\' ];  //use double escape because backslash is a special character
 
 //Writes the generated password to the page
 function writePassword() {
@@ -36,10 +36,10 @@ function generatePassword() {
   enter = parseInt(prompt("Choose how many characters. Values between 8 and 128 are accepted.")); 
   if (!enter) {
     alert('You did not enter a value.'); //checks that the user entered a value
-    return false;
+    return 'You did not enter a length.';
   } else if (enter < 8 || enter > 128) {
     enter = alert("Must choose a value between 8 and 128"); //checks that the user entered a value between 8 and 128
-    return false;
+    return 'You did not enter a valid length.';
   } else {
     confirmNumberChoice = confirm("Include numerica values?");
     confirmUppercaseChoice = confirm("Include uppercase letters?");
@@ -49,6 +49,7 @@ function generatePassword() {
     //No options selected
   if (!confirmNumberChoice && !confirmUppercaseChoice && !confirmLowercaseChoice && !confirmSymbolsChoice) { 
     userChoices = alert('No options selected. Please choose at least one option.'); //checks that the user selected at least one of the four character options
+    return 'You did not select any character options.'
     //Four options selected 
   } else if (confirmNumberChoice && confirmUppercaseChoice && confirmLowercaseChoice && confirmSymbolsChoice){
     userChoices = numberList.concat(numberList, uppercaseList, lowercaseList, symbolsList);
