@@ -56,11 +56,11 @@ function generatePassword() {
    //Three options selected
   } else if (confirmNumberChoice && confirmUppercaseChoice && confirmLowercaseChoice) {
     userChoices = numberList.concat(numberList, uppercaseList, lowercaseList);
-  } else if (confirmNumberChoice && confirmUppercaseChoice, confirmSymbolsChoice) {
+  } else if (confirmNumberChoice && confirmUppercaseChoice && confirmSymbolsChoice) {
     userChoices = numberList.concat(numberList, uppercaseList, symbolsList);
-  } else if (confirmNumberChoice && confirmLowercaseChoice, confirmSymbolsChoice) {
+  } else if (confirmNumberChoice && confirmLowercaseChoice && confirmSymbolsChoice) {
     userChoices = numberList.concat(numberList, lowercaseList, symbolsList);
-  } else if (confirmUppercaseChoice && confirmLowercaseChoice, confirmSymbolsChoice) {
+  } else if (confirmUppercaseChoice && confirmLowercaseChoice && confirmSymbolsChoice) {
     userChoices = uppercaseList.concat(uppercaseList, lowercaseList, symbolsList);
   //Two options selected
   } else if (confirmNumberChoice && confirmUppercaseChoice) {
@@ -98,3 +98,4 @@ function generatePassword() {
   var passwordString = passwordArray.join("");
   return passwordString;
 }
+
